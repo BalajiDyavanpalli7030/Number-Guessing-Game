@@ -1,0 +1,353 @@
+*,
+*::after,
+*::before
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+.main-container{
+    position: relative;
+    height: 100vh;
+}
+
+.container {
+    position: absolute;
+    min-width: 700px;
+    height: 300px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    top :50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 5; 
+}
+
+h1 {
+    color: #007BFF; 
+    font-size: 56px;
+}
+
+#opening h1{
+    font-size: 7rem;
+}
+input, button {
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    outline: none; 
+}  
+
+input {
+    display: block;
+    color: #0f55a0;
+    margin: 20px auto;
+    font-size: 40px;
+    text-align: center;
+    color:rgba(0, 0, 255, 0.875) ;
+} 
+
+::placeholder {
+    color: #3633ff50;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+} 
+button {
+    display: block;
+    margin: 10px auto;
+    background-color: #007BFF;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+} 
+
+button:hover {
+    background-color: #0056b3;
+} 
+
+.overlay {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.829);
+    z-index: 100;
+}
+.bg {
+    background: #003f8c
+}
+.popup { 
+    position: absolute;
+    width: 700px;
+    top:30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 50px;
+    color: #320cda;
+    z-index: 101;
+    animation: popup 0.3s ease-in-out forwards;
+} 
+
+@keyframes popup{
+    100%{
+        top: 50%;
+    }
+}
+
+.popup button {
+    width: 90%;
+    font-size: 30px;
+    margin-top: 40px;
+}  
+
+.hidden {
+    display: none; 
+}  
+
+
+.signIn-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .signIn-container h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 40px;
+    margin: 20px auto;
+  }
+
+  .signIn-container form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+  
+form input {
+    /* padding: 10px; */
+    font-size: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 20px;
+    color:rgba(0, 0, 255, 0.875) ;
+
+    
+  }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset; /* Set the background color for autofilled inputs */
+    color:rgba(0, 0, 255, 0.875) ; /* Set the text color for autofilled inputs */
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: rgba(0, 0, 255, 0.875)  !important; /* Set the text color for autofilled inputs */
+  }
+.signIn-container button, form button {
+    /* padding: 10px 20px; */
+    font-size: 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+ form button:hover {
+    background-color: #0056b3;
+  }
+  
+ form button:focus {
+    outline: none;
+  }
+  
+ form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+ form button:disabled:hover {
+    background-color: #ccc;
+  }
+  
+  /* Optional: Add a link style for navigating to the sign-up page */
+form .link {
+    text-align: center;
+  }
+  
+form .link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+form .link a:hover {
+    text-decoration: underline;
+  }
+
+form label {
+    display: block;
+    max-width: 400px;
+    margin:0 0 0 40px;
+    font-size: 1.5rem;
+    color: #007bff;
+    text-align:start;
+    margin-bottom: 6px;
+    
+
+  }
+  
+  /* Optional: Add specific styles for the email and password labels */
+form label[for="email"] {
+    color: #007bff;
+  }
+  
+form label[for="password"] {
+    color: #007bff;
+  }
+
+.history-container{
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+.guess-count {
+    font-size: 18px;
+    color:  #320cda;
+    margin: 18px;
+  }
+.history-btn{
+    width: 20%;
+}
+.flex-item{
+    flex-basis: 300px;
+    width: 200px; /* Adjust the width as needed. */
+    height: 70px;
+  }
+#opening .mainContainer-h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.navbar {
+   
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Center the content vertically */
+    height: 50px; /* Set a suitable height for the navbar */
+    background-color: #f0f0f0; 
+    width: 55%;
+    margin: 20px auto;
+
+}
+
+/* Style for the navbar items */
+.navbar button {
+  
+  border: none; /* Remove the default button border */
+  background-color: #007BFF; /* Make the background transparent */
+  color: white; /* Set text color */
+  font-size: 24px; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin: 100px 100px; 
+  /* border: 2px solid #99ff00; */
+  
+}
+
+.navbar button:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+
+/* On hover, the links will change color */
+.navbar button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+@media (max-width: 750px) {
+    .container {
+        min-width: 500px;
+        height: 210px;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    input{
+        padding: 5px;
+        font-size: 2rem;
+    }
+    button{
+        font-size: 1rem;
+    }
+    .popup{
+        max-width: 500px;
+        height: 210px;
+        font-size: 30px;
+    }
+    .popup button {
+        width: 80%;
+        font-size: 20px;
+        margin-top: 30px;
+    } 
+    #opening h1{
+        font-size: 4rem;
+    }
+    
+}
+
+
+@media (max-width: 550px) {
+    .container {
+        min-width: 300px;
+        height: 230px;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    input{
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+    button{
+        font-size: 1rem;
+        /* height: 20px; */
+        padding: 5px;
+    }
+    .popup{
+        max-width: 300px;
+        height:220px;
+        font-size: 2rem;
+    }
+    .popup button {
+        width: 80%;
+        font-size: 1.5rem;
+        margin-top: 20px;
+    } 
+    #opening h1{
+        font-size: 3rem;
+    }
+    #opening button{
+        font-size: 2rem;
+    }
+}
