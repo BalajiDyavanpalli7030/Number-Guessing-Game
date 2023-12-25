@@ -52,6 +52,11 @@ Visit http://localhost:3000 in your browser to play the game.
 - Flask for the backend
 - MySQL for data storage
 
+## Authentication and Game History
+
+- **Authentication System:** User authentication is handled securely using Flask-Bcrypt for password hashing.
+- **User Game History:** The application stores user game history, including details such as scores and game number in the database.
+
 ## Deployment
 
 The Number Guessing Game is deployed on Netlify. You can play it live at [https://0numberguessinggame.netlify.app/].
