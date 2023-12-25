@@ -10,7 +10,7 @@ from flask_bcrypt import check_password_hash
 app = Flask(__name__) # entry point for app
 CORS(app, origins=['http://localhost:3000'])
 
-app.config['MYSQL_HOST'] = 'host.docker.internal'
+app.config['MYSQL_HOST'] = 'host.docker.internal' #'192.168.32.1'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '' #'user-password'
 app.config['MYSQL_DB'] = 'db1'
@@ -89,7 +89,7 @@ def sign_user():
 
 # config = {
 #     'user': 'root',
-#     'password': 'Bqwe@12345',
+#     'password': '',
 #     'host': 'host.docker.internal',#'192.168.32.1',
 #     'database': 'db1',
 # }
