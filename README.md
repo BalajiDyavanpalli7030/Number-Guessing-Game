@@ -20,24 +20,30 @@ A simple web application for playing the number guessing game. Guess the correct
 2. Navigate to the project folder:
    ```bash
    cd number-guessing-game
+   
 3. Install dependencies for frontend and backend:
 
 # Install frontend dependencies
-cd frontend
-npm install
+  ```bash
+  cd frontend
+  npm install
 
 # Install backend dependencies
-cd ../backend
-pip install -r requirements.txt
+  ```bash
+  cd ../backend
+  pip install -r requirements.txt
 
 4. Run the application:
-   # Start the frontend
-cd ../frontend
-npm start
+
+# Start the frontend
+  ```bash
+  cd ../frontend
+  npm start
 
 # Start the backend
-cd ../backend
-python app.py
+  ```bash
+  cd ../backend
+  python app.py
 
 Visit http://localhost:3000 in your browser to play the game.
 
