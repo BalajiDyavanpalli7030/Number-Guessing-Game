@@ -22,27 +22,27 @@ A simple web application for playing the number guessing game. Guess the correct
    cd number-guessing-game
 
 # Install frontend dependencies
-  ```bash
-  cd frontend
-  npm install
-```
+   ```bash
+   cd frontend
+   npm install
+   ```
 # Install backend dependencies
-  ```bash
-  cd ../backend
-  pip install -r requirements.txt
-```
+   ```bash
+   cd ../backend
+   pip install -r requirements.txt
+   ```
 3. Run the application:
 
 # Start the frontend
-  ```bash
-  cd ../frontend
-  npm start
-```
+   ```bash
+   cd ../frontend
+   npm start
+   ```
 # Start the backend
-  ```bash
-  cd ../backend
-  python app.py
-```
+   ```bash
+   cd ../backend
+   python app.py
+   ```
 Visit http://localhost:3000 in your browser to play the game.
 
 ## Technologies Used
