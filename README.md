@@ -31,7 +31,7 @@ A simple web application for playing the number guessing game. Guess the correct
   cd ../backend
   pip install -r requirements.txt
 ```
-4. Run the application:
+3. Run the application:
 
 # Start the frontend
   ```bash
