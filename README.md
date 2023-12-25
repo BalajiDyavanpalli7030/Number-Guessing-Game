@@ -21,24 +21,24 @@ A simple web application for playing the number guessing game. Guess the correct
    ```bash
    cd number-guessing-game
 
-# Install frontend dependencies
+## Install frontend dependencies
    ```bash
    cd frontend
    npm install
    ```
-# Install backend dependencies
+## Install backend dependencies
    ```bash
    cd ../backend
    pip install -r requirements.txt
    ```
 3. Run the application:
 
-# Start the frontend
+## Start the frontend
    ```bash
    cd ../frontend
    npm start
    ```
-# Start the backend
+## Start the backend
    ```bash
    cd ../backend
    python app.py
