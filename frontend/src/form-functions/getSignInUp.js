@@ -49,7 +49,7 @@ const useSignIn = () => {
         }
       }
     })
-    .catch(error => checkIsEmpty(error));
+    .catch(error => checkIsEmpty('Server Error'));
     
   }
 
