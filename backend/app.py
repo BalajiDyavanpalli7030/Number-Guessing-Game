@@ -114,14 +114,16 @@ def add_user():
                 cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
                 user = cursor.fetchall()
                 if user:
-                    return jsonify(f'user {email} already exists')
+                    return jsonify({'message': f'User with email {email} already exists', 'status': 'error'})
                 cursor.execute("INSERT INTO users (name, email,hashed_password) VALUES (%s, %s,%s)", (name, email,hashed_password))
                 connection.commit()
-                return jsonify('user added successfully!')
+                return jsonify({'message': 'User added successfully!', 'status': 'success'})
         except Error as e:
-            return jsonify(f"Something went wong")
+            return jsonify({'message': 'Something went wrong', 'status': 'error'})
         finally:
             connection.close() 
+        
+    return jsonify({'message': 'Unable to connect to the database', 'status': 'error'})
     
 
 @app.route('/sign_user', methods=['POST'])
