@@ -27,23 +27,29 @@ const useSignIn = () => {
       const  name = data_?.name
       const isUser = data_?.isUser
       const isPassword = data_?.isPassword
-      
-      if (isUser===false || isPassword===false ){
-        checkIsEmpty("Invalid Email Address or Password")
-        return
-      }
+      const message = data_?.message
+      const status = data_?.status
 
+      console.log(Id, name, isUser, isPassword,message, status)
+      
       if (urlProp==='sign_user'){
+        if (isUser===false || isPassword===false ){
+          checkIsEmpty("Invalid Email Address or Password")
+          return
+        }
         onSuccess(data,Id,name)
         e.currentTarget.reset();
-         
-      }else{
-        e.currentTarget.reset();
-        checkIsEmpty('Account has created successfully',true)
+      }
+      if (urlProp === 'add_user'){
+        if (status==='success'){
+          // e.currentTarget.reset();
+          checkIsEmpty(message,true)
+        }else{
+          checkIsEmpty(message)
+        }
       }
     })
-    .catch(error => checkIsEmpty('Server Error'));
-
+    .catch(error => checkIsEmpty(error));
     
   }
 
