@@ -10,7 +10,7 @@ from flask_bcrypt import check_password_hash
 app = Flask(__name__) # entry point for app
 CORS(app, origins=['http://localhost:3000'])
 
-app.config['MYSQL_HOST'] = 'host.docker.internal' #'192.168.32.1'
+app.config['MYSQL_HOST'] = 'localhost'#'host.docker.internal' #'192.168.32.1'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '' #'user-password'
 app.config['MYSQL_DB'] = 'db1'
@@ -27,6 +27,67 @@ def get_mysql_connection():
     except Error as e:
         print(f"Error: {e}")
         return None
+try:
+    # Attempt to connect to the MySQL database
+    conn = get_mysql_connection()
+    if conn.is_connected():
+        print("MySQL is active and reachable.")
+        conn.close()
+except Exception as e:
+    print("Something went wong")
+    
+def setup_database():
+    # Create the 'db1' database if it doesn't exist
+    with app.app_context():
+        connection = get_mysql_connection()
+        if connection is not None:
+            try:
+                with connection.cursor(dictionary=True) as cursor:
+                    cursor.execute("CREATE DATABASE IF NOT EXISTS db1")
+                    cursor.execute("USE db1")
+
+                    # Check if the 'users' table already exists
+                    cursor.execute("SHOW TABLES LIKE 'users'")
+                    table_exists = cursor.fetchone()
+
+                    # If 'users' table doesn't exist, create it
+                    if not table_exists:
+                        cursor.execute("""
+                            CREATE TABLE users (
+                                id INT PRIMARY KEY AUTO_INCREMENT,
+                                name VARCHAR(255),
+                                email VARCHAR(255)
+                                hashed_password VARCHAR(255)
+                            )
+                        """)
+                        connection.commit()
+                    
+                    # Check if the 'user_history' table already exists
+                    cursor.execute("SHOW TABLES LIKE 'user_history'")
+                    user_history_table_exists = cursor.fetchone()
+
+                    # If 'user_history' table doesn't exist, create it
+                    if not user_history_table_exists:
+                        cursor.execute("""
+                            CREATE TABLE user_history (
+                                id INT PRIMARY KEY AUTO_INCREMENT,
+                                user_id INT,
+                                guessed_count INT,
+                                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                FOREIGN KEY (user_id) REFERENCES users(id)
+                            )
+                        """)
+                        connection.commit()
+
+
+                    cursor.close()
+            except Error as e:
+                return jsonify(f"Something went wong")
+            finally:
+                connection.close() 
+
+# Call the setup function to create the database and table
+setup_database()
 
 @app.route("/", methods=["GET"])
 def welcome():
@@ -87,20 +148,6 @@ def sign_user():
             connection.close() 
     return jsonify([])       
 
-# config = {
-#     'user': 'root',
-#     'password': '',
-#     'host': 'host.docker.internal',#'192.168.32.1',
-#     'database': 'db1',
-# }
-try:
-    # Attempt to connect to the MySQL database
-    conn = get_mysql_connection()
-    if conn.is_connected():
-        print("MySQL is active and reachable.")
-        conn.close()
-except Exception as e:
-    print("Something went wong")
 
 
 @app.route('/get_users', methods=['GET'])
