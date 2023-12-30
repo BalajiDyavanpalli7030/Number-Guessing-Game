@@ -8,7 +8,6 @@ A simple web application for playing the number guessing game. Guess the correct
  
 - `backend/`: Flask code for the backend
 
-- `README.md`: Documentation file
 
 ## Setup and Installation
 
@@ -48,7 +47,7 @@ Visit http://localhost:3000 in your browser to play the game.
 ## Technologies Used
 
 - React.js for the frontend (utilizing JSX for component structure)
-- HTML and CSS for styling and markup
+- CSS for styling
 - Flask for the backend
 - MySQL for data storage
 
